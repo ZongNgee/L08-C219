@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<body>
+
+</br>
+<h1 style="text-align:center">About Me.</h1>
+</br>
+<div class="flexbox-container" style="display:flex;">
+    <div class="sidebar" style="flex:1;margin-left:20px;">
+        <img src="image/msg-1657545242-6.png" alt="self"/>
+        </div>
+    <div class="element" style="flex:1; margin-top: 200px; font-size: 25px;">
+        <b class="name">Zong Ngee</b>
+        <br>
+        <b class="demo1"></b>
+        <b>years old</b>
+        <p class="stud">I am a Repulbic Polytechnic student. Currently studying D3D</p>
+    </div>
+</div>
+
+<div style="flex:1; margin-left: 1100px; ">
+<button class="btn1 center">play</button>
+<button class="btn2 center">pause</button>
+
+
+<script>
+anime({
+  targets: '.sidebar',
+  translateX: 290,
+  rotate: '1turn',
+  easing: 'easeOutQuad',
+  delay: anime.stagger(500  , {start: 300}) // delay starts at 500ms then increase by 100ms for each elements.
+});
+
+
+var animation = anime({
+  targets: '.element',
+  translateX: 270,
+  delay: function(el, i) { return i * 100; },
+  direction: 'alternate',
+  loop: true,
+  autoplay: false,
+  easing: 'easeInOutSine'
+});
+
+document.querySelector('.btn1').onclick = animation.play;
+document.querySelector('.btn2').onclick = animation.pause;
+
+anime({
+targets: '.demo1',
+innerHTML: [0, 20], //start and end values
+easing: 'linear',
+round: 1, //rounds off to zero decimal places 
+duration: 1000
+});
+</script>
+</body>
+</html>
+
+
+
